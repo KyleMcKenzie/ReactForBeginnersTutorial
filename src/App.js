@@ -1,20 +1,36 @@
 import React from 'react';
+import Nav from './components/appbar'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Gallery from './components/gallery';
 import './App.css';
+import { createStyles, withStyles } from '@material-ui/core';
 
+const styles = (theme) => createStyles({
+  container: {
+    margin: '0 auto',
+  },
+});
 
-export default class App extends React.Component {
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
       <React.Fragment>
+        <Nav />
         <CssBaseline />
-        <Container maxWidth="xl">
-          <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>Welcome!</Typography>
+        <Container>
+          {/* <Typography align="center" component="div">Hello World</Typography> */}
+          <Gallery />
         </Container>
       </React.Fragment>
     );
   }
 }
+
+export default withStyles(styles)(App);
